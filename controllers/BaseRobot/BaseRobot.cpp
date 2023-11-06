@@ -10,18 +10,32 @@
 BaseRobot::BaseRobot()
     : ID{ getName() }
     , receiver{ getReceiver("receiver") }
-    , emitter{ getEmitter("emitter") } {
-    receiver->enable(TIME_STEP);
+    , emitter{ getEmitter("emitter") } 
+	, gps{ getGPS("gps") }
+	, compass{ getCompass("compass") } {
+	receiver->enable(TIME_STEP);
+	gps->enable(TIME_STEP);
+	compass->enable(TIME_STEP);
 }
 
 BaseRobot::~BaseRobot() = default;
 
 void BaseRobot::keyboardControl() {
-
+	
 }
 
 void BaseRobot::updateCurrentPosition() {
-
+	// retrieve gps data
+	auto gpsValues{ gps->getValues() };
+	currentPositionX = gpsValues[0];
+	currentPositionY = gpsValues[1];
+	// retrieve compass data
+	auto compassValues{ compass->getValues() };
+	double rad{ atan2(compassValues[1], compassValues[0]) };
+	double bearing = (rad - 1.5708) / PI * 180.0;
+	if (bearing < 0.0)
+		bearing = bearing + 360.0;
+	currentYaw = bearing;
 }
 
 void BaseRobot::setTargetPosition(double x, double y) {

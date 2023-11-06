@@ -13,13 +13,18 @@
 #include <sstream>
 #include <cstring>
 #include <string>
+#include <vector>
+#include <cmath>
 
 #include <webots/Receiver.hpp>
 #include <webots/Emitter.hpp>
 #include <webots/Robot.hpp>
-
+#include <webots/Keyboard.hpp>
+#include <webots/GPS.hpp>
+#include <webots/Compass.hpp>
 
 constexpr int TIME_STEP{ 64 };
+constexpr double PI{ 3.14159265358979323846 };
 
 class BaseRobot : public webots::Robot {
 public:
@@ -52,6 +57,7 @@ protected:
 private:
 	std::unique_ptr<webots::Receiver> receiver{};
 	std::unique_ptr<webots::Emitter> emitter{};
-	
+	std::unique_ptr<webots::GPS> gps{};
+	std::unique_ptr<webots::Compass> compass{};
 	// add additional members as needed
 };
