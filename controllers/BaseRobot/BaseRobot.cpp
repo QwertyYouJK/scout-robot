@@ -39,7 +39,8 @@ void BaseRobot::updateCurrentPosition() {
 }
 
 void BaseRobot::setTargetPosition(double x, double y) {
-
+	targetPositionX = x;
+	targetPositionY = y;
 }
 
 bool BaseRobot::moveToTarget(double stopDistance) {
