@@ -24,7 +24,7 @@ constexpr int TIME_STEP{ 64 };
 class BaseRobot : public webots::Robot {
 public:
 	BaseRobot();
-	virtual ~BaseRobot() = default;
+	~BaseRobot();
   
 	virtual void run() = 0;
 	virtual void move(double speed) = 0;

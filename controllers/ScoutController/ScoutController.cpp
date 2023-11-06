@@ -23,7 +23,9 @@ void ScoutRobot::speak() {
 	std::cout << "I am the scout\n";
 }
 
-bool readColour() {}
+bool readColour() {
+	return true;
+}
 
 int main() {
 	ScoutRobot myController;

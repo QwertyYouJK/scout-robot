@@ -12,7 +12,7 @@ public:
 	void rotate(double speed) override;
 
 	void speak() override;
-	bool readColour();
+	//bool readColour();
 	// Add more member functions
 private:
 	// Add private members

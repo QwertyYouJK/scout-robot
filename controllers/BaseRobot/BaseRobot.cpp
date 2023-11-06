@@ -29,7 +29,7 @@ void BaseRobot::setTargetPosition(double x, double y) {
 }
 
 bool BaseRobot::moveToTarget(double stopDistance) {
-
+	return true;
 }
 
 void BaseRobot::sendMessage(const std::string& ID, const std::string& data0, const std::string& data1) {
