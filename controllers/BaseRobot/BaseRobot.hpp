@@ -44,6 +44,8 @@ public:
 	void sendMessage(const std::string& ID, const std::string& data0, const std::string& data1);
 	std::pair<std::string, std::string> receiveMessage();
 
+	void wait(BaseRobot& robot, double waitPeriod);
+
 protected:
 	std::string ID{};
 	double currentPositionX{};
@@ -52,6 +54,8 @@ protected:
 	double targetPositionX{};
 	double targetPositionY{};
 
+	double distance{};
+	double angleDiff{};
 	// add additional members as needed
   
 private:

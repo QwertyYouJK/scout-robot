@@ -44,7 +44,16 @@ void BaseRobot::setTargetPosition(double x, double y) {
 }
 
 bool BaseRobot::moveToTarget(double stopDistance) {
-	return true;
+	double dist{ sqrt(pow((currentPositionX - targetPositionX), 2) + pow((currentPositionY - targetPositionY), 2)) };
+	if (dist <= stopDistance) return true;
+	distance = dist - stopDistance;
+	// calcalate angle difference
+	double rad{ atan2(targetPositionY - currentPositionY, targetPositionX - currentPositionX) };
+	double bearing = (rad - 1.5708) / PI * 180.0;
+	if (bearing < 0.0)
+		bearing = bearing + 360.0;
+	angleDiff = bearing - currentYaw;
+	return false;
 }
 
 void BaseRobot::sendMessage(const std::string& ID, const std::string& data0, const std::string& data1) {
@@ -80,4 +89,11 @@ std::pair<std::string, std::string> BaseRobot::receiveMessage() {
     }
     // If the ID doesn't match or the format is incorrect, return an empty pair
     return std::make_pair("", "");
+}
+
+void wait(BaseRobot& robot, double waitPeriod) {
+	const double start{ robot.getTime() };
+	while (robot.getTime() - start < waitPeriod * 0.001) {
+		robot.step(duration);
+	}
 }
