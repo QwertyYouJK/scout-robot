@@ -6,26 +6,26 @@
 
 #include "LeaderController.hpp"
 
-LeaderController::LeaderController() {}
-LeaderController::~LeaderController() {}
+LeaderRobot::LeaderRobot() {}
+LeaderRobot::~LeaderRobot() {}
   
-void LeaderController::run() {
-  // Main runner for leader robot controller
-  while (step(TIME_STEP) != -1) {
-    // Main loop
-    speak();
-  }
+void LeaderRobot::run() {
+	// Main runner for leader robot controller
+	while (step(TIME_STEP) != -1) {
+		// Main loop
+		speak();
+	}
 }
-void LeaderController::move(double speed) {}
-void LeaderController::rotate(double speed) {}
+void LeaderRobot::move(double speed) {}
+void LeaderRobot::rotate(double speed) {}
 
-void LeaderController::speak() {
-  std::cout << "I am the leader\n";
+void LeaderRobot::speak() {
+	std::cout << "I am the leader\n";
 }
 
 
 int main() {
-  LeaderController myController;
-  myController.run();
-  return 0;
+	LeaderRobot myController;
+	myController.run();
+	return 0;
 }
