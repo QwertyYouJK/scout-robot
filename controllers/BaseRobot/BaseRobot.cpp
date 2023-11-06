@@ -2,7 +2,7 @@
 // Date:          XX/XX/XXXX
 // Description:   Implementation of BaseRobot to be inherited by the Leader and Scout robots classes.
 // Author:        XXX XXX
-// zID:           z1234567
+// zID:           z5401349
 // Modifications:
 
 #include "BaseRobot.hpp"
@@ -12,6 +12,24 @@ BaseRobot::BaseRobot()
     , receiver{ getReceiver("receiver") }
     , emitter{ getEmitter("emitter") } {
     receiver->enable(TIME_STEP);
+}
+
+BaseRobot::~BaseRobot() = default;
+
+void BaseRobot::keyboardControl() {
+
+}
+
+void BaseRobot::updateCurrentPosition() {
+
+}
+
+void BaseRobot::setTargetPosition(double x, double y) {
+
+}
+
+bool BaseRobot::moveToTarget(double stopDistance) {
+
 }
 
 void BaseRobot::sendMessage(const std::string& ID, const std::string& data0, const std::string& data1) {
