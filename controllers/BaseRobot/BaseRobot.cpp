@@ -91,9 +91,9 @@ std::pair<std::string, std::string> BaseRobot::receiveMessage() {
     return std::make_pair("", "");
 }
 
-void wait(BaseRobot& robot, double waitPeriod) {
-	const double start{ robot.getTime() };
-	while (robot.getTime() - start < waitPeriod * 0.001) {
-		robot.step(duration);
-	}
-}
+//void wait(BaseRobot& robot, double waitPeriod) {
+//	const double start{ robot.getTime() };
+//	while (robot.getTime() - start < waitPeriod * 0.001) {
+//		robot.step(TIME_STEP);
+//	}
+//}

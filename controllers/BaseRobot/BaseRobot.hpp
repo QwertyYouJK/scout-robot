@@ -44,7 +44,7 @@ public:
 	void sendMessage(const std::string& ID, const std::string& data0, const std::string& data1);
 	std::pair<std::string, std::string> receiveMessage();
 
-	void wait(BaseRobot& robot, double waitPeriod);
+	//void wait(BaseRobot& robot, double waitPeriod);
 
 protected:
 	std::string ID{};
