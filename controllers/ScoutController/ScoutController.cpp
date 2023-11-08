@@ -6,7 +6,7 @@
 
 #include "ScoutController.hpp"
 
-ScoutRobot::ScoutRobot() {}
+ScoutRobot::ScoutRobot() {};
 ScoutRobot::~ScoutRobot() {}
 
 void ScoutRobot::run() {

@@ -8,15 +8,15 @@
 #include "BaseRobot.hpp"
 
 BaseRobot::BaseRobot()
-    : ID{ getName() }
-    , receiver{ getReceiver("receiver") }
-    , emitter{ getEmitter("emitter") } 
+	: ID{ getName() }
+	, receiver{ getReceiver("receiver") }
+	, emitter{ getEmitter("emitter") }
 	, gps{ getGPS("gps") }
 	, compass{ getCompass("compass") } {
 	receiver->enable(TIME_STEP);
 	gps->enable(TIME_STEP);
 	compass->enable(TIME_STEP);
-}
+};
 
 BaseRobot::~BaseRobot() = default;
 
@@ -91,9 +91,9 @@ std::pair<std::string, std::string> BaseRobot::receiveMessage() {
     return std::make_pair("", "");
 }
 
-//void wait(BaseRobot& robot, double waitPeriod) {
-//	const double start{ robot.getTime() };
-//	while (robot.getTime() - start < waitPeriod * 0.001) {
-//		robot.step(TIME_STEP);
-//	}
-//}
+void BaseRobot::wait(double waitPeriod) {
+	const double start{ getTime() };
+	while (getTime() - start < waitPeriod * 0.001) {
+		step(TIME_STEP);
+	}
+}

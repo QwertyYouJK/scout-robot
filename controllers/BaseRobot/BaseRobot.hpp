@@ -23,6 +23,7 @@
 #include <webots/GPS.hpp>
 #include <webots/Compass.hpp>
 #include <webots/Motor.hpp>
+#include <webots/Lidar.hpp>
 
 constexpr int TIME_STEP{ 64 };
 constexpr double PI{ 3.14159265358979323846 };
@@ -44,7 +45,7 @@ public:
 	void sendMessage(const std::string& ID, const std::string& data0, const std::string& data1);
 	std::pair<std::string, std::string> receiveMessage();
 
-	//void wait(BaseRobot& robot, double waitPeriod);
+	void wait(double waitPeriod);
 
 protected:
 	std::string ID{};

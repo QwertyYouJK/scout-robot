@@ -15,7 +15,7 @@ public:
 	void fileOutput(const std::string& output);
 
 private:
-	std::unique_ptr<webots::Motor> frontLeftMotor{}
+	std::unique_ptr<webots::Motor> frontLeftMotor{};
 	std::unique_ptr<webots::Motor> frontRightMotor{};
 	std::unique_ptr<webots::Motor> rearLeftMotor{};
 	std::unique_ptr<webots::Motor> rearRightMotor{};

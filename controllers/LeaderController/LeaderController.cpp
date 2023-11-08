@@ -6,24 +6,29 @@
 
 #include "LeaderController.hpp"
 
-LeaderRobot::LeaderRobot() 
+LeaderRobot::LeaderRobot()
 	: frontLeftMotor{ getMotor("front left wheel motor") }
 	, frontRightMotor{ getMotor("front right wheel motor") }
 	, rearLeftMotor{ getMotor("rear left wheel motor") }
 	, rearRightMotor{ getMotor("rear right wheel motor") }
 	, lidar{ getLidar("lidar") } {
 	lidar->enable(TIME_STEP);
-}
+};
+
 LeaderRobot::~LeaderRobot() {}
   
 void LeaderRobot::run() {
 	// Main runner for leader robot controller
 	while (step(TIME_STEP) != -1) {
 		// Main loop
-		speak();
+		move(10);
+		wait(1000);
 	}
 }
-void LeaderRobot::move(double speed) {}
+void LeaderRobot::move(double speed) {
+	std::cout << "Moving with speed of " << speed << "!\n";
+}
+
 void LeaderRobot::rotate(double speed) {}
 
 
