@@ -15,6 +15,8 @@
 #include <string>
 #include <vector>
 #include <cmath>
+#include <sstream>
+#include <fstream>
 
 #include <webots/Receiver.hpp>
 #include <webots/Emitter.hpp>

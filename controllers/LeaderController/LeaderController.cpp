@@ -53,7 +53,6 @@ void LeaderRobot::rotate(double speed) {
 void LeaderRobot::scanLidarData() {
 	auto data{ lidar->getPointCloud() };
 	int numPoints{ lidar->getNumberOfPoints() };
-	std::vector<LeaderRobot::OOI> OOIs;
 	int scoutNum{ 1 };
 	for (int i{ 0 }; i < numPoints; i++) {
 		auto lidarPoint{ data[i] };
@@ -68,16 +67,39 @@ void LeaderRobot::scanLidarData() {
 				i++;
 				lidarPoint = data[i];
 			}
-			OOIs.push_back({ x / numPointsOOI, y / numPointsOOI, scoutNum });
+			mOOIs.push_back({ x / numPointsOOI, y / numPointsOOI, scoutNum });
 			scoutNum++;
 		}
 	}
 
-	//// printing the results
-	//int size{ static_cast<int>(OOIs.size()) };
-	//for (int i{ 0 }; i < size; i++) {
-	//	std::cout << i + 1 << " x: " << OOIs[i].x << ", y: " << OOIs[i].y << ", scout num: " << OOIs[i].scoutNum << '\n';
-	//}
+	// append output.txt
+	int size{ static_cast<int>(mOOIs.size()) };
+	for (int i{ 0 }; i < size; i++) {
+		std::ostringstream ss;
+		ss << "OOI discovered at x:" << mOOIs[i].x << " y: " << mOOIs[i].y << '\n';
+		std::string output{ ss.str() };
+		fileOutput(output);
+		std::cout << output;
+	}
+
+	// send message to scout robots
+	for (int i{ 0 }; i < size; i++) {
+		std::string ID{ std::to_string(mOOIs[i].scoutNum) };
+		std::string data1{ std::to_string(mOOIs[i].x) };
+		std::string data2{ std::to_string(mOOIs[i].y) };
+		sendMessage(ID, data1, data2);
+		std::ostringstream ss;
+		ss << "Target pose x:" << mOOIs[i].x << " y: " << mOOIs[i].y << " sent to robot " << mOOIs[i].scoutNum << '\n';
+		std::string output{ ss.str() };
+		fileOutput(output);
+		std::cout << output;
+	}
+}
+
+void LeaderRobot::fileOutput(const std::string& output) const {
+	std::ofstream outputFile;
+	outputFile.open("output.txt", std::ofstream::app);
+	outputFile << output;
 }
 
 int main() {

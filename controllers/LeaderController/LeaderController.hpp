@@ -18,7 +18,7 @@ public:
 	void rotate(double speed) override;
 	
 	void scanLidarData();
-	void fileOutput(const std::string& output);
+	void fileOutput(const std::string& output) const;
 
 private:
 	std::unique_ptr<webots::Motor> frontLeftMotor{};
@@ -26,4 +26,5 @@ private:
 	std::unique_ptr<webots::Motor> rearLeftMotor{};
 	std::unique_ptr<webots::Motor> rearRightMotor{};
 	std::unique_ptr<webots::Lidar> lidar{};
+	std::vector<LeaderRobot::OOI> mOOIs{};
 };
