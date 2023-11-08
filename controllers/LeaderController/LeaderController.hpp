@@ -4,6 +4,12 @@
 
 class LeaderRobot : public BaseRobot {
 public:
+	struct OOI {
+		double x;
+		double y;
+		int scoutNum;
+	};
+	
 	LeaderRobot();
 	~LeaderRobot();
   
