@@ -22,6 +22,7 @@
 #include <webots/Keyboard.hpp>
 #include <webots/GPS.hpp>
 #include <webots/Compass.hpp>
+#include <webots/Motor.hpp>
 
 constexpr int TIME_STEP{ 64 };
 constexpr double PI{ 3.14159265358979323846 };
@@ -29,12 +30,11 @@ constexpr double PI{ 3.14159265358979323846 };
 class BaseRobot : public webots::Robot {
 public:
 	BaseRobot();
-	~BaseRobot();
+	virtual ~BaseRobot();
   
 	virtual void run() = 0;
 	virtual void move(double speed) = 0;
 	virtual void rotate(double speed) = 0;
-	virtual void speak() = 0;
 
 	void keyboardControl();
 	void updateCurrentPosition();
