@@ -32,9 +32,7 @@ void BaseRobot::updateCurrentPosition() {
 	// retrieve compass data
 	auto compassValues{ compass->getValues() };
 	double rad{ atan2(compassValues[1], compassValues[0]) };
-	double bearing = (rad - 1.5708) / PI * 180.0;
-	if (bearing < 0.0)
-		bearing = bearing + 360.0;
+	double bearing = rad - 1.5708;
 	currentYaw = bearing;
 }
 

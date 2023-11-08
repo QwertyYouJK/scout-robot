@@ -27,6 +27,7 @@
 
 constexpr int TIME_STEP{ 64 };
 constexpr double PI{ 3.14159265358979323846 };
+constexpr double WHEEL_RADIUS{ 0.043 };
 
 class BaseRobot : public webots::Robot {
 public:
