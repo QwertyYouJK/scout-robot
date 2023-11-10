@@ -26,6 +26,8 @@
 #include <webots/Compass.hpp>
 #include <webots/Motor.hpp>
 #include <webots/Lidar.hpp>
+#include <webots/Camera.hpp>
+#include <webots/DistanceSensor.hpp>
 
 constexpr int TIME_STEP{ 64 };
 constexpr double PI{ 3.14159265358979323846 };
@@ -58,7 +60,7 @@ protected:
 	double targetPositionX{};
 	double targetPositionY{};
 
-	double distance{};
+	double distanceDiff{};
 	double angleDiff{};
 	// add additional members as needed
   

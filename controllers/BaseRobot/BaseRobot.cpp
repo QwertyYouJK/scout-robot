@@ -32,7 +32,9 @@ void BaseRobot::updateCurrentPosition() {
 	// retrieve compass data
 	auto compassValues{ compass->getValues() };
 	double rad{ atan2(compassValues[1], compassValues[0]) };
-	double bearing = rad - 1.5708;
+	double bearing = rad - PI / 2;
+	if (bearing < 0.0)
+		bearing = bearing + 2 * PI;
 	currentYaw = bearing;
 }
 
@@ -44,12 +46,12 @@ void BaseRobot::setTargetPosition(double x, double y) {
 bool BaseRobot::moveToTarget(double stopDistance) {
 	double dist{ sqrt(pow((currentPositionX - targetPositionX), 2) + pow((currentPositionY - targetPositionY), 2)) };
 	if (dist <= stopDistance) return true;
-	distance = dist - stopDistance;
+	distanceDiff = dist - stopDistance;
 	// calcalate angle difference
 	double rad{ atan2(targetPositionY - currentPositionY, targetPositionX - currentPositionX) };
-	double bearing = (rad - 1.5708) / PI * 180.0;
+	double bearing = rad - PI / 2;
 	if (bearing < 0.0)
-		bearing = bearing + 360.0;
+		bearing = bearing + 2 * PI;
 	angleDiff = bearing - currentYaw;
 	return false;
 }

@@ -12,14 +12,6 @@ LeaderRobot::LeaderRobot()
 	, rearLeftMotor{ getMotor("rear left wheel motor") }
 	, rearRightMotor{ getMotor("rear right wheel motor") }
 	, lidar{ getLidar("lidar") } {
-	frontLeftMotor->setPosition(INFINITY);
-	frontLeftMotor->setVelocity(0);
-	frontRightMotor->setPosition(INFINITY);
-	frontRightMotor->setVelocity(0);
-	rearLeftMotor->setPosition(INFINITY);
-	rearLeftMotor->setVelocity(0);
-	rearRightMotor->setPosition(INFINITY);
-	rearRightMotor->setVelocity(0);
 	lidar->enable(TIME_STEP);
 	lidar->enablePointCloud();
 };

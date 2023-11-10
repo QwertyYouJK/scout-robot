@@ -11,9 +11,11 @@ public:
 	void move(double speed) override;
 	void rotate(double speed) override;
 
-	void speak() override;
 	//bool readColour();
-	// Add more member functions
+
 private:
-	// Add private members
+	std::unique_ptr<webots::Motor> leftMotor{};
+	std::unique_ptr<webots::Motor> rightMotor{};
+	std::unique_ptr<webots::Camera> camera{};
+	std::unique_ptr<webots::DistanceSensor> distance{};
 };
