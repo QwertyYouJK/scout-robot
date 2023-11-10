@@ -3037,3 +3037,117 @@ OOI discovered at x:1.94458 y: -1.94764
 Target pose x:-1.95063 y: 1.94146 sent to robot 1
 Target pose x:1.94458 y: 1.94764 sent to robot 2
 Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3
+OOI discovered at x:-1.95063 y: 1.94146
+OOI discovered at x:1.94458 y: 1.94764
+OOI discovered at x:1.94458 y: -1.94764
+Target pose x:-1.95063 y: 1.94146 sent to robot 1
+Target pose x:1.94458 y: 1.94764 sent to robot 2
+Target pose x:1.94458 y: -1.94764 sent to robot 3

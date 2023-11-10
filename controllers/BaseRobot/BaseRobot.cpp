@@ -35,7 +35,7 @@ void BaseRobot::updateCurrentPosition() {
 	rad -= PI / 2;
 	rad *= -1;
 	if (rad < 0) {
-		rad = 2 * PI + rad;
+		rad += 2 * PI;
 	}
 	currentYaw = rad;
 }
@@ -46,15 +46,21 @@ void BaseRobot::setTargetPosition(double x, double y) {
 }
 
 bool BaseRobot::moveToTarget(double stopDistance) {
+	// calculate distance
 	double dist{ sqrt(pow((currentPositionX - targetPositionX), 2) + pow((currentPositionY - targetPositionY), 2)) };
 	if (dist <= stopDistance) return true;
 	distanceDiff = dist - stopDistance;
 	// calcalate angle difference
 	double rad{ atan2(targetPositionY - currentPositionY, targetPositionX - currentPositionX) };
-	double bearing = rad - PI / 2;
-	if (bearing < 0.0)
-		bearing = bearing + 2 * PI;
-	angleDiff = bearing - currentYaw;
+	if (rad < 0) {
+		rad += 2 * PI;
+	}
+	double turnLeftRad{ rad - currentYaw };
+	double turnRightRad{ 2 * PI - turnLeftRad };
+	if (abs(turnLeftRad) < abs(turnRightRad))
+		angleDiff = turnLeftRad;
+	else if (abs(turnLeftRad) > abs(turnRightRad))
+		angleDiff = -1 * turnRightRad;
 	return false;
 }
 

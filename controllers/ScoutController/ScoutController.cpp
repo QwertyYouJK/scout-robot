@@ -29,7 +29,7 @@ void ScoutRobot::run() {
 			moveToTarget(0);
 			std::cout << "I'm robot " << ID << " and my target position is " << targetPositionX << ", " << targetPositionY
 				<< " while my position right now is " << currentPositionX << ", " << currentPositionY << '\n';
-			std::cout << "The angle diff between my current yaw (" << currentYaw << ") and target is " << angleDiff << '\n';
+			std::cout << "My current yaw is " << currentYaw << " and angleDiff is " << angleDiff << '\n';
 			std::cout << "The distance between me and target is " << distanceDiff << '\n';
 		}
 		// Move to OOI
