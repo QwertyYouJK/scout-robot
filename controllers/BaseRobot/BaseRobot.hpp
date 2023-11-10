@@ -31,7 +31,9 @@
 
 constexpr int TIME_STEP{ 64 };
 constexpr double PI{ 3.14159265358979323846 };
-constexpr double WHEEL_RADIUS{ 0.043 };
+constexpr double LEADER_WHEEL_RADIUS{ 0.043 };
+constexpr double SCOUT_WHEEL_RADIUS{ 0.02 };
+constexpr double SCOUT_WHEEL_DISTANCE{ 0.026 };
 
 class BaseRobot : public webots::Robot {
 public:
@@ -62,6 +64,7 @@ protected:
 
 	double distanceDiff{};
 	double angleDiff{};
+	bool hasTarget{false};
 	// add additional members as needed
   
 private:

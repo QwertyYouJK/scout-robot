@@ -55,12 +55,12 @@ bool BaseRobot::moveToTarget(double stopDistance) {
 	if (rad < 0) {
 		rad += 2 * PI;
 	}
-	double turnLeftRad{ rad - currentYaw };
-	double turnRightRad{ 2 * PI - turnLeftRad };
-	if (abs(turnLeftRad) < abs(turnRightRad))
-		angleDiff = turnLeftRad;
-	else if (abs(turnLeftRad) > abs(turnRightRad))
-		angleDiff = -1 * turnRightRad;
+	if (rad > currentYaw) {
+		angleDiff = rad - currentYaw;
+	}
+	else {
+		angleDiff = 2 * PI - (currentYaw - rad);
+	}
 	return false;
 }
 

@@ -10,7 +10,10 @@ public:
 	void run() override;
 	void move(double speed) override;
 	void rotate(double speed) override;
-
+	
+	void stop();
+	void rotateToOOI();
+	void moveToOOI();
 	//bool readColour();
 
 private:
