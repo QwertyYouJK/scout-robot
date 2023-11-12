@@ -70,7 +70,7 @@ void ScoutRobot::rotate(double speed) {
 void ScoutRobot::rotateToOOI() {
 	leftMotor->setPosition(INFINITY);
 	rightMotor->setPosition(INFINITY);
-	double rotateSpeed{ 2.177 }; // around pi/2 rad per second
+	double rotateSpeed{ 2.1772 }; // around pi/2 rad per second
 	rotate(rotateSpeed);
 	double timeWait{ angleDiff / (PI / 2) * 1000 };
 	wait(timeWait);

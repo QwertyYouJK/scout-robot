@@ -25,10 +25,10 @@ void LeaderRobot::run() {
 		// Main loop
 		// scan environment once
 		if (!scanned) {
+			updateCurrentPosition();
 			scanLidarData();
 			scanned = true;
 			setTargetPosition(2, 2);
-			updateCurrentPosition();
 			moveToTarget(0);
 		}
 
@@ -141,7 +141,7 @@ void LeaderRobot::scanLidarData() {
 				i++;
 				lidarPoint = data[i];
 			}
-			mOOIs.push_back({ x / numPointsOOI, y / numPointsOOI, scoutNum });
+			mOOIs.push_back({ x / numPointsOOI + currentPositionX, y / numPointsOOI + currentPositionY, scoutNum });
 			scoutNum++;
 		}
 	}
