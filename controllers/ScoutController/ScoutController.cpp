@@ -34,20 +34,20 @@ void ScoutRobot::run() {
 		if (hasTarget) {
 			rotateToOOI();
 			updateCurrentPosition();
-			moveToTarget(0.2);
+			moveToTarget(0.3);
 
 			moveToOOI();
 			updateCurrentPosition();
-			moveToTarget(0.2);
+			moveToTarget(0.3);
 
 			stop();
 
 			if (readColour()) {
-				std::cout << "This is robot " << ID << " and in front of me is green!\n";
+				//std::cout << "This is robot " << ID << " and in front of me is green!\n";
 				sendMessage("0", ID, "green");
 			}
 			else {
-				std::cout << "This is robot " << ID << " and in front of me is red!\n";
+				//std::cout << "This is robot " << ID << " and in front of me is red!\n";
 				sendMessage("0", ID, "red");
 			}
 			hasTarget = false;
@@ -70,18 +70,18 @@ void ScoutRobot::rotate(double speed) {
 void ScoutRobot::rotateToOOI() {
 	leftMotor->setPosition(INFINITY);
 	rightMotor->setPosition(INFINITY);
-	double rotateSpeed{ 2.1772 }; // around pi/2 rad per second
+	double rotateSpeed{ 3 };
 	rotate(rotateSpeed);
-	double timeWait{ angleDiff / (PI / 2) * 1000 };
+	double timeWait{ angleDiff / 2.16405 * 1000 };
 	wait(timeWait);
 }
 
 void ScoutRobot::moveToOOI() {
 	leftMotor->setPosition(INFINITY);
 	rightMotor->setPosition(INFINITY);
-	double moveSpeed{ 4.88 }; // around 0.1 m per second
+	double moveSpeed{ 6.28 };
 	move(moveSpeed);
-	double timeWait{ distanceDiff / 0.1 * 1000 };
+	double timeWait{ distanceDiff / 0.128614 * 1000 };
 	wait(timeWait);
 }
 
