@@ -14,7 +14,7 @@ public:
 	void stop();
 	void rotateToOOI();
 	void moveToOOI();
-	//bool readColour();
+	bool readColour();
 
 private:
 	std::unique_ptr<webots::Motor> leftMotor{};

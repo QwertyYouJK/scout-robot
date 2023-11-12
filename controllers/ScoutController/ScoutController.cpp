@@ -40,8 +40,15 @@ void ScoutRobot::run() {
 			updateCurrentPosition();
 			moveToTarget(0.5);
 
-			stop();
-			wait(30000);
+			if (readColour()) {
+				std::cout << "This is robot " << ID << " and in front of me is green!\n";
+				sendMessage("0", std::to_string(ID), "green");
+			}
+			else {
+				std::cout << "This is robot " << ID << " and in front of me is red!\n";
+				sendMessage("0", std::to_string(ID), "red");
+			}
+			hasTarget = false;
 		}
 	}
 }
@@ -61,7 +68,7 @@ void ScoutRobot::rotate(double speed) {
 void ScoutRobot::rotateToOOI() {
 	leftMotor->setPosition(INFINITY);
 	rightMotor->setPosition(INFINITY);
-	double rotateSpeed{ 2.177 };
+	double rotateSpeed{ 2.177 }; // around pi/2 rad per second
 	rotate(rotateSpeed);
 	double timeWait{ angleDiff / (PI / 2) * 1000 };
 	wait(timeWait);
@@ -70,15 +77,21 @@ void ScoutRobot::rotateToOOI() {
 void ScoutRobot::moveToOOI() {
 	leftMotor->setPosition(INFINITY);
 	rightMotor->setPosition(INFINITY);
-	double moveSpeed{ 4.88 };
+	double moveSpeed{ 4.88 }; // around 0.1 m per second
 	move(moveSpeed);
 	double timeWait{ distanceDiff / 0.1 * 1000 };
 	wait(timeWait);
 }
 
-//bool ScoutRobot::readColour() {
-//	return true;
-//}
+bool ScoutRobot::readColour() {
+	std::cout << "Reading Colour\n";
+	camera->recognitionEnable(TIME_STEP);
+	int num{ camera->getRecognitionNumberOfObjects() };
+	if (num) {
+		return true;
+	}
+	return false;
+}
 
 void ScoutRobot::stop() {
 	leftMotor->setVelocity(0);
