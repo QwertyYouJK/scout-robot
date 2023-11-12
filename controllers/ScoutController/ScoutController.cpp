@@ -42,11 +42,11 @@ void ScoutRobot::run() {
 
 			if (readColour()) {
 				std::cout << "This is robot " << ID << " and in front of me is green!\n";
-				sendMessage("0", std::to_string(ID), "green");
+				sendMessage("0", ID, "green");
 			}
 			else {
 				std::cout << "This is robot " << ID << " and in front of me is red!\n";
-				sendMessage("0", std::to_string(ID), "red");
+				sendMessage("0", ID, "red");
 			}
 			hasTarget = false;
 		}
