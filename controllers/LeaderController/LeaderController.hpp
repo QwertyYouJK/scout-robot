@@ -17,6 +17,9 @@ public:
 	void move(double speed) override;
 	void rotate(double speed) override;
 	
+	void stop();
+	void rotateToOOI();
+	void moveToOOI();
 	void scanLidarData();
 	void fileOutput(const std::string& output) const;
 

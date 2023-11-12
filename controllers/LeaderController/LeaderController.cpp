@@ -20,10 +20,62 @@ LeaderRobot::~LeaderRobot() {}
   
 void LeaderRobot::run() {
 	// Main runner for leader robot controller
+	bool scanned{ false };
 	while (step(TIME_STEP) != -1) {
 		// Main loop
-		scanLidarData();
-		wait(30000);
+		// scan environment once
+		if (!scanned) {
+			scanLidarData();
+			scanned = true;
+			setTargetPosition(2, 2);
+			updateCurrentPosition();
+			moveToTarget(0);
+		}
+
+		// checking for messages
+		std::pair <std::string, std::string> message{ receiveMessage() };
+		if (message.first != "") {
+			std::ostringstream ss;
+			ss << "Robot " << message.first << " has identified a " << message.second << " OOI\n";
+			std::string output{ ss.str() };
+			fileOutput(output);
+			std::cout << output;
+
+			// set green OOI as target
+			int size{ static_cast<int>(mOOIs.size()) };
+			for (int i{ 0 }; i < size; i++) {
+				if (message.second == "green" && mOOIs[i].scoutNum == std::stoi(message.first)) {
+					ss << "Green OOI has been found, moving to x: " << mOOIs[i].x << " y: " << mOOIs[i].y << '\n';
+					std::string output{ ss.str() };
+					fileOutput(output);
+					std::cout << output;
+					setTargetPosition(mOOIs[i].x, mOOIs[i].y);
+					updateCurrentPosition();
+					moveToTarget(0);
+					hasTarget = true;
+				}
+			}
+		}
+
+		if (hasTarget) {
+			rotateToOOI();
+			updateCurrentPosition();
+			moveToTarget(0.5);
+
+			moveToOOI();
+			updateCurrentPosition();
+			moveToTarget(0.5);
+
+			stop();
+
+			fileOutput("Successfully arrived at the green OOI\n");
+			std::cout << "Successfully arrived at the green OOI\n";
+
+			hasTarget = false;
+		}
+		
+
+
 	}
 }
 void LeaderRobot::move(double speed) {
@@ -31,15 +83,45 @@ void LeaderRobot::move(double speed) {
 	frontRightMotor->setVelocity(speed);
 	rearLeftMotor->setVelocity(speed);
 	rearRightMotor->setVelocity(speed);
-	std::cout << "Moving\n";
+	//std::cout << "Moving\n";
 }
 
 void LeaderRobot::rotate(double speed) {
-	frontLeftMotor->setVelocity(speed);
-	rearLeftMotor->setVelocity(speed);
-	frontRightMotor->setVelocity(-1 * speed);
-	rearRightMotor->setVelocity(-1 * speed);
-	std::cout << "Rotating\n";
+	frontLeftMotor->setVelocity(-speed);
+	rearLeftMotor->setVelocity(-speed);
+	frontRightMotor->setVelocity(speed);
+	rearRightMotor->setVelocity(speed);
+	//std::cout << "Rotating\n";
+}
+
+void LeaderRobot::stop() {
+	frontLeftMotor->setVelocity(0);
+	rearLeftMotor->setVelocity(0);
+	frontRightMotor->setVelocity(0);
+	rearRightMotor->setVelocity(0);
+	//std::cout << "Stop!\n";
+}
+
+void LeaderRobot::rotateToOOI() {
+	frontLeftMotor->setPosition(INFINITY);
+	rearLeftMotor->setPosition(INFINITY);
+	frontRightMotor->setPosition(INFINITY);
+	rearRightMotor->setPosition(INFINITY);
+	double rotateSpeed{ 4.8704 }; // around pi/2 rad per second
+	rotate(rotateSpeed);
+	double timeWait{ angleDiff / (PI / 2) * 1000};
+	wait(timeWait);
+}
+
+void LeaderRobot::moveToOOI() {
+	frontLeftMotor->setPosition(INFINITY);
+	rearLeftMotor->setPosition(INFINITY);
+	frontRightMotor->setPosition(INFINITY);
+	rearRightMotor->setPosition(INFINITY);
+	double moveSpeed{ 5.68 }; // around 0.25 m per second
+	move(moveSpeed);
+	double timeWait{ distanceDiff / 0.25 * 1000 };
+	wait(timeWait);
 }
 
 void LeaderRobot::scanLidarData() {
