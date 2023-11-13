@@ -16,8 +16,9 @@ public:
 	void run() override;
 	void move(double speed) override;
 	void rotate(double speed) override;
-	
-	void stop();
+	void stop() override;
+	void setPosInf() override;
+
 	void rotateToOOI();
 	void moveToOOI();
 	void scanLidarData();

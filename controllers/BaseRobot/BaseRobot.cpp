@@ -12,16 +12,38 @@ BaseRobot::BaseRobot()
 	, receiver{ getReceiver("receiver") }
 	, emitter{ getEmitter("emitter") }
 	, gps{ getGPS("gps") }
-	, compass{ getCompass("compass") } {
+	, compass{ getCompass("compass") }
+	, keyboard{ getKeyboard() } {
 	receiver->enable(TIME_STEP);
 	gps->enable(TIME_STEP);
 	compass->enable(TIME_STEP);
+	keyboard->enable(TIME_STEP);
 };
 
 BaseRobot::~BaseRobot() = default;
 
 void BaseRobot::keyboardControl() {
-	
+	std::ifstream file("keyboardConfig.txt");
+	std::string config;
+	std::getline(file, config);
+	if (config.compare("keyboardControl=true") == 0) {
+		keyboardEnabled = true;
+		char const key = static_cast<char>(keyboard->getKey());
+		setPosInf();
+		if (key == 'W' || key == 'w') {
+			move(6.28);
+		} else if (key == 'A' || key == 'a') {
+			rotate(6.28);
+		} else if (key == 'S' || key == 's') {
+			move(-6.28);
+		} else if (key == 'D' || key == 'd') {
+			rotate(-6.28);
+		} else {
+			stop();
+		}
+	} else {
+		keyboardEnabled = false;
+	}
 }
 
 void BaseRobot::updateCurrentPosition() {

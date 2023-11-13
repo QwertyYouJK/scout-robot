@@ -68,8 +68,7 @@ void ScoutRobot::rotate(double speed) {
 
 
 void ScoutRobot::rotateToOOI() {
-	leftMotor->setPosition(INFINITY);
-	rightMotor->setPosition(INFINITY);
+	setPosInf();
 	double rotateSpeed{ 3 };
 	rotate(rotateSpeed);
 	double timeWait{ angleDiff / 2.16405 * 1000 };
@@ -77,8 +76,7 @@ void ScoutRobot::rotateToOOI() {
 }
 
 void ScoutRobot::moveToOOI() {
-	leftMotor->setPosition(INFINITY);
-	rightMotor->setPosition(INFINITY);
+	setPosInf();
 	double moveSpeed{ 6.28 };
 	move(moveSpeed);
 	double timeWait{ distanceDiff / 0.128614 * 1000 };
@@ -99,6 +97,11 @@ void ScoutRobot::stop() {
 	leftMotor->setVelocity(0);
 	rightMotor->setVelocity(0);
 	//std::cout << "Stop!\n";
+}
+
+void ScoutRobot::setPosInf() {
+	leftMotor->setPosition(INFINITY);
+	rightMotor->setPosition(INFINITY);
 }
 
 int main() {

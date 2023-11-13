@@ -43,6 +43,8 @@ public:
 	virtual void run() = 0;
 	virtual void move(double speed) = 0;
 	virtual void rotate(double speed) = 0;
+	virtual void stop() = 0;
+	virtual void setPosInf() = 0;
 
 	void keyboardControl();
 	void updateCurrentPosition();
@@ -64,7 +66,8 @@ protected:
 
 	double distanceDiff{};
 	double angleDiff{};
-	bool hasTarget{false};
+	bool hasTarget{ false };
+	bool keyboardEnabled{ false };
 	// add additional members as needed
   
 private:
@@ -72,5 +75,6 @@ private:
 	std::unique_ptr<webots::Emitter> emitter{};
 	std::unique_ptr<webots::GPS> gps{};
 	std::unique_ptr<webots::Compass> compass{};
+	std::unique_ptr<webots::Keyboard> keyboard{};
 	// add additional members as needed
 };

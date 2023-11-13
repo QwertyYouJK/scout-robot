@@ -23,6 +23,7 @@ void LeaderRobot::run() {
 	bool scanned{ false };
 	while (step(TIME_STEP) != -1) {
 		// Main loop
+		keyboardControl();
 		// scan environment once
 		if (!scanned) {
 			updateCurrentPosition();
@@ -50,14 +51,16 @@ void LeaderRobot::run() {
 					fileOutput(output);
 					std::cout << output;
 					setTargetPosition(mOOIs[i].x, mOOIs[i].y);
-					updateCurrentPosition();
-					moveToTarget(0);
 					hasTarget = true;
 				}
 			}
 		}
 
-		if (hasTarget) {
+		// move to green OOI
+		if (hasTarget && !keyboardEnabled) {
+			updateCurrentPosition();
+			moveToTarget(0.5);
+
 			rotateToOOI();
 			updateCurrentPosition();
 			moveToTarget(0.5);
@@ -73,11 +76,9 @@ void LeaderRobot::run() {
 
 			hasTarget = false;
 		}
-		
-
-
 	}
 }
+
 void LeaderRobot::move(double speed) {
 	frontLeftMotor->setVelocity(speed);
 	frontRightMotor->setVelocity(speed);
@@ -102,11 +103,15 @@ void LeaderRobot::stop() {
 	//std::cout << "Stop!\n";
 }
 
-void LeaderRobot::rotateToOOI() {
+void LeaderRobot::setPosInf() {
 	frontLeftMotor->setPosition(INFINITY);
 	rearLeftMotor->setPosition(INFINITY);
 	frontRightMotor->setPosition(INFINITY);
 	rearRightMotor->setPosition(INFINITY);
+}
+
+void LeaderRobot::rotateToOOI() {
+	setPosInf();
 	double rotateSpeed{ 4.8704 }; // around pi/2 rad per second
 	rotate(rotateSpeed);
 	double timeWait{ angleDiff / (PI / 2) * 1000};
@@ -114,10 +119,7 @@ void LeaderRobot::rotateToOOI() {
 }
 
 void LeaderRobot::moveToOOI() {
-	frontLeftMotor->setPosition(INFINITY);
-	rearLeftMotor->setPosition(INFINITY);
-	frontRightMotor->setPosition(INFINITY);
-	rearRightMotor->setPosition(INFINITY);
+	setPosInf();
 	double moveSpeed{ 5.68 }; // around 0.25 m per second
 	move(moveSpeed);
 	double timeWait{ distanceDiff / 0.25 * 1000 };
