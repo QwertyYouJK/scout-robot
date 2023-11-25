@@ -5797,3 +5797,55 @@ Robot 1 has identified a green OOI
 Robot 1 has identified a green OOI
 Green OOI has been found, moving to x: -3.8147 y: 4.01941
 Successfully arrived at the green OOI
+OOI discovered at x:-3.8147 y: 4.01941
+OOI discovered at x:2.91505 y: 1.98582
+OOI discovered at x:-1.25538 y: -1.97367
+Target pose x:-3.8147 y: 4.01941 sent to robot 1
+Target pose x:2.91505 y: 1.98582 sent to robot 2
+Target pose x:-1.25538 y: -1.97367 sent to robot 3
+Robot 3 has identified a red OOI
+Robot 2 has identified a red OOI
+OOI discovered at x:-3.8147 y: 4.01941
+OOI discovered at x:2.91505 y: 1.98582
+OOI discovered at x:-1.25538 y: -1.97367
+Target pose x:-3.8147 y: 4.01941 sent to robot 1
+Target pose x:2.91505 y: 1.98582 sent to robot 2
+Target pose x:-1.25538 y: -1.97367 sent to robot 3
+Robot 3 has identified a red OOI
+Robot 2 has identified a red OOI
+Robot 1 has identified a red OOI
+OOI discovered at x:-3.8147 y: 4.01941
+OOI discovered at x:2.91505 y: 1.98582
+OOI discovered at x:-1.25538 y: -1.97367
+Target pose x:-3.8147 y: 4.01941 sent to robot 1
+Target pose x:2.91505 y: 1.98582 sent to robot 2
+Target pose x:-1.25538 y: -1.97367 sent to robot 3
+Robot 3 has identified a red OOI
+Robot 2 has identified a red OOI
+Robot 1 has identified a green OOI
+Robot 1 has identified a green OOI
+Green OOI has been found, moving to x: -3.8147 y: 4.01941
+OOI discovered at x:-1.08452 y: 1.92537
+OOI discovered at x:2.89346 y: -1.98031
+OOI discovered at x:-1.19782 y: -2.51886
+Target pose x:-1.08452 y: 1.92537 sent to robot 1
+Target pose x:2.89346 y: -1.98031 sent to robot 2
+Target pose x:-1.19782 y: -2.51886 sent to robot 3
+Robot 1 has identified a red OOI
+Robot 3 has identified a green OOI
+Robot 3 has identified a green OOI
+Green OOI has been found, moving to x: -1.19782 y: -2.51886
+Successfully arrived at the green OOI
+Robot 2 has identified a red OOI
+OOI discovered at x:-0.859957 y: -0.509856
+OOI discovered at x:0.937467 y: 1.24213
+OOI discovered at x:2.99229 y: 0.688177
+Target pose x:-0.859957 y: -0.509856 sent to robot 1
+Target pose x:0.937467 y: 1.24213 sent to robot 2
+Target pose x:2.99229 y: 0.688177 sent to robot 3
+Robot 2 has identified a green OOI
+Robot 2 has identified a green OOI
+Green OOI has been found, moving to x: 0.937467 y: 1.24213
+Successfully arrived at the green OOI
+Robot 1 has identified a red OOI
+Robot 3 has identified a red OOI

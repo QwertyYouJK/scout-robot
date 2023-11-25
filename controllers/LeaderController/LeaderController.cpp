@@ -84,7 +84,6 @@ void LeaderRobot::move(double speed) {
 	frontRightMotor->setVelocity(speed);
 	rearLeftMotor->setVelocity(speed);
 	rearRightMotor->setVelocity(speed);
-	//std::cout << "Moving\n";
 }
 
 void LeaderRobot::rotate(double speed) {
@@ -92,7 +91,6 @@ void LeaderRobot::rotate(double speed) {
 	rearLeftMotor->setVelocity(-speed);
 	frontRightMotor->setVelocity(speed);
 	rearRightMotor->setVelocity(speed);
-	//std::cout << "Rotating\n";
 }
 
 void LeaderRobot::stop() {
@@ -100,7 +98,6 @@ void LeaderRobot::stop() {
 	rearLeftMotor->setVelocity(0);
 	frontRightMotor->setVelocity(0);
 	rearRightMotor->setVelocity(0);
-	//std::cout << "Stop!\n";
 }
 
 void LeaderRobot::setPosInf() {
